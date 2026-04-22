@@ -58,9 +58,8 @@ jobs:
 
       - name: Publish stable-selector
         if: steps.check.outputs.published == 'false'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm --filter stable-selector publish --no-git-checks --provenance
+        working-directory: packages/core
+        run: npm publish --provenance --access public
 
   package-extension:
     name: Package browser extension and upload to release
