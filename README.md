@@ -156,12 +156,12 @@ Contributions are welcome! Please read the [Contributing Guide](./CONTRIBUTING.m
 
 ## Release
 
-This repo includes a publish workflow at `.github/workflows/release-core.yml`.
+This repo includes a unified release workflow at `.github/workflows/release.yml`.
 
 1. Add repository secret `NPM_TOKEN` (npm publish token).
 2. Bump `packages/core/package.json` version.
-3. Push a tag like `core-v0.1.1` (or run workflow manually).
-4. GitHub Actions will run typecheck/test/build and publish `stable-selector` if that version is not already on npm.
+3. Push a tag like `release-v0.1.1` (or run workflow manually).
+4. GitHub Actions will run typecheck/test/build, publish `stable-selector` (if not already published), package the browser extension zip, and attach it to the GitHub Release.
 
 ## License
 

@@ -155,12 +155,12 @@ stable-selector 使用四阶段管道架构：
 
 ## 发布
 
-仓库已提供发布工作流：`.github/workflows/release-core.yml`。
+仓库已提供统一发布工作流：`.github/workflows/release.yml`。
 
 1. 在仓库 Secrets 中添加 `NPM_TOKEN`（npm 发布令牌）。
 2. 更新 `packages/core/package.json` 的版本号。
-3. 推送类似 `core-v0.1.1` 的 tag（或手动触发 workflow）。
-4. GitHub Actions 会先跑 typecheck/test/build，若该版本未发布到 npm 则自动发布 `stable-selector`。
+3. 推送类似 `release-v0.1.1` 的 tag（或手动触发 workflow）。
+4. GitHub Actions 会先跑 typecheck/test/build；若该版本未发布到 npm 则自动发布 `stable-selector`，并打包浏览器插件 zip 作为 GitHub Release 附件上传。
 
 ## 许可证
 
