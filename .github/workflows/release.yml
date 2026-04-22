@@ -83,6 +83,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build core package
+        run: pnpm --filter stable-selector run build
+
       - name: Build extension zip
         run: pnpm --filter @stable-selector/browser-extension run zip
 
