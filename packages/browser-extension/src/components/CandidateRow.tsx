@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import { SelectorDisplay } from './SelectorDisplay';
 import { ScoreBar } from './ScoreBar';
-import type { ScoredCandidate } from '@stable-selector/core';
+import type { ScoredCandidate } from 'stable-selector';
 
 interface CandidateRowProps {
   index: number;

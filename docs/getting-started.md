@@ -4,13 +4,13 @@
 
 ```bash
 # npm
-npm install @stable-selector/core
+npm install stable-selector
 
 # pnpm
-pnpm add @stable-selector/core
+pnpm add stable-selector
 
 # yarn
-yarn add @stable-selector/core
+yarn add stable-selector
 ```
 
 ## Basic Usage
@@ -20,7 +20,7 @@ yarn add @stable-selector/core
 Use `getSelector` to get the best selector for a DOM element:
 
 ```ts
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 const element = document.querySelector('.my-button');
 
@@ -41,7 +41,7 @@ const result = getSelector<'css'>(element);
 Use `getSelectorAll` to retrieve every candidate selector, scored and sorted:
 
 ```ts
-import { getSelectorAll } from '@stable-selector/core';
+import { getSelectorAll } from 'stable-selector';
 
 const candidates = getSelectorAll(element);
 
@@ -60,7 +60,7 @@ Each `ScoredCandidate` includes per-dimension scores (`uniqueness`, `stability`,
 Use `configure` to adjust global settings. Settings are deep-merged with the current configuration:
 
 ```ts
-import { configure, getConfig, resetConfig } from '@stable-selector/core';
+import { configure, getConfig, resetConfig } from 'stable-selector';
 
 configure({
   formats: ['css', 'playwright'],       // only generate CSS and Playwright selectors
@@ -153,7 +153,7 @@ configure({
 Override formats or add extra blacklist entries for a single call without changing the global configuration:
 
 ```ts
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 // Only produce a CSS selector for this call
 const result = getSelector(element, { formats: ['css'] });
@@ -169,7 +169,7 @@ const result2 = getSelector(element, {
 ### E2E Testing with Playwright
 
 ```ts
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 const sel = getSelector<'playwright'>(element);
 if (sel?.playwright) {
@@ -191,7 +191,7 @@ if (sel?.css) {
 Generate stable selectors to track elements across page changes:
 
 ```ts
-import { getSelectorAll } from '@stable-selector/core';
+import { getSelectorAll } from 'stable-selector';
 
 const candidates = getSelectorAll(element);
 // Pick the highest-scoring candidate

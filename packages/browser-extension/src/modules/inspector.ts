@@ -1,5 +1,5 @@
-import { getSelectorAll, getConfig, FilterEngine } from '@stable-selector/core';
-import type { ScoredCandidate, FilterDetail } from '@stable-selector/core';
+import { getSelectorAll, getConfig, FilterEngine } from 'stable-selector';
+import type { ScoredCandidate, FilterDetail } from 'stable-selector';
 import * as highlighter from './highlighter';
 
 const PANEL_HOST_ID = 'stable-selector-panel-host';

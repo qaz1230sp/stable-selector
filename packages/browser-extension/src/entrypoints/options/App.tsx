@@ -70,7 +70,7 @@ export function App() {
               Emotion, and more.
             </p>
             <a
-              href="https://github.com/user/stable-selector"
+              href="https://github.com/qaz1230sp/stable-selector"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-blue-500 hover:underline"

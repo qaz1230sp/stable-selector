@@ -25,7 +25,7 @@ function getSelector<F extends SelectorFormat = SelectorFormat>(
 **Example:**
 
 ```ts
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 // All formats
 const result = getSelector(element);
@@ -61,7 +61,7 @@ function getSelectorAll(
 **Example:**
 
 ```ts
-import { getSelectorAll } from '@stable-selector/core';
+import { getSelectorAll } from 'stable-selector';
 
 const candidates = getSelectorAll(element);
 for (const c of candidates) {
@@ -88,7 +88,7 @@ function configure(config: Partial<StableSelectorConfig>): void;
 **Example:**
 
 ```ts
-import { configure } from '@stable-selector/core';
+import { configure } from 'stable-selector';
 
 configure({
   formats: ['css'],
@@ -112,7 +112,7 @@ function resetConfig(): void;
 **Example:**
 
 ```ts
-import { resetConfig } from '@stable-selector/core';
+import { resetConfig } from 'stable-selector';
 resetConfig();
 ```
 
@@ -131,7 +131,7 @@ function getConfig(): StableSelectorConfig;
 **Example:**
 
 ```ts
-import { getConfig } from '@stable-selector/core';
+import { getConfig } from 'stable-selector';
 const config = getConfig();
 console.log(config.formats); // ['css', 'xpath', 'playwright']
 ```
@@ -387,7 +387,7 @@ class FilterEngine {
 **Example:**
 
 ```ts
-import { FilterEngine } from '@stable-selector/core';
+import { FilterEngine } from 'stable-selector';
 
 const filter = new FilterEngine({
   blacklist: { classNames: ['css-*'] },
@@ -445,7 +445,7 @@ Format a raw selector string as a Playwright locator.
 **Example:**
 
 ```ts
-import { formatCSS, formatXPath, formatPlaywright } from '@stable-selector/core';
+import { formatCSS, formatXPath, formatPlaywright } from 'stable-selector';
 
 formatCSS('submit-btn');       // '#submit-btn'
 formatXPath('submit-btn');     // '//*[@id="submit-btn"]'

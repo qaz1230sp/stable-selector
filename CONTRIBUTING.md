@@ -13,7 +13,7 @@ Thank you for your interest in contributing! This guide will help you get starte
 
 ```bash
 # Clone the repository
-git clone https://github.com/user/stable-selector.git
+git clone https://github.com/qaz1230sp/stable-selector.git
 cd stable-selector
 
 # Install dependencies
@@ -33,7 +33,7 @@ pnpm run build
 
 ```
 packages/
-  core/                   # @stable-selector/core
+  core/                   # stable-selector
     src/
       filter/             # Filter engine (built-in rules, heuristic, types)
       strategies/         # Selector strategies (id, attribute, structural, text, role)
@@ -120,4 +120,4 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 
 ## Questions?
 
-Feel free to open an [issue](https://github.com/user/stable-selector/issues) for questions, bug reports, or feature requests.
+Feel free to open an [issue](https://github.com/qaz1230sp/stable-selector/issues) for questions, bug reports, or feature requests.

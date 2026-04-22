@@ -2,7 +2,7 @@ import { defineContentScript } from 'wxt/utils/define-content-script';
 import { initConfig, watchConfigChanges } from '../modules/config-bridge';
 import * as inspector from '../modules/inspector';
 import * as panelManager from '../modules/panel-manager';
-import type { ScoredCandidate, FilterDetail } from '@stable-selector/core';
+import type { ScoredCandidate, FilterDetail } from 'stable-selector';
 import type { PanelData } from '../components/FloatingPanel';
 
 export default defineContentScript({

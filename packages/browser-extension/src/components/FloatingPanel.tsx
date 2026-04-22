@@ -4,7 +4,7 @@ import { ElementSummary } from './ElementSummary';
 import { BestSelector } from './BestSelector';
 import { CandidateList } from './CandidateList';
 import { FilterDetails } from './FilterDetails';
-import type { ScoredCandidate, FilterDetail } from '@stable-selector/core';
+import type { ScoredCandidate, FilterDetail } from 'stable-selector';
 
 export interface PanelData {
   element: {

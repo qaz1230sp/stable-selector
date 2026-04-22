@@ -72,10 +72,6 @@ export function highlight(element: Element): void {
   const mr = parseFloat(style.marginRight) || 0;
   const mb = parseFloat(style.marginBottom) || 0;
   const ml = parseFloat(style.marginLeft) || 0;
-  const pt = parseFloat(style.paddingTop) || 0;
-  const pr = parseFloat(style.paddingRight) || 0;
-  const pb = parseFloat(style.paddingBottom) || 0;
-  const pl = parseFloat(style.paddingLeft) || 0;
   const bt = parseFloat(style.borderTopWidth) || 0;
   const br = parseFloat(style.borderRightWidth) || 0;
   const bb = parseFloat(style.borderBottomWidth) || 0;

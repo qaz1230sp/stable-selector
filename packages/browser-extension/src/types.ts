@@ -1,4 +1,4 @@
-import type { SelectorFormat, BlacklistConfig } from '@stable-selector/core';
+import type { SelectorFormat, BlacklistConfig } from 'stable-selector';
 
 /** Extension configuration stored in chrome.storage.sync */
 export interface ExtensionConfig {

@@ -1,10 +1,13 @@
 {
-  "name": "@stable-selector/core",
+  "name": "stable-selector",
   "version": "0.1.0",
   "description": "Generate unique, stable selectors for web elements with smart dynamic attribute filtering",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "browser": "./dist/index.global.js",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -31,8 +34,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/stable-selector",
+    "url": "https://github.com/qaz1230sp/stable-selector",
     "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "sideEffects": false
 }

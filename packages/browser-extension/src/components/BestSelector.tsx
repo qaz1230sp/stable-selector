@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
 import { SelectorDisplay } from './SelectorDisplay';
-import type { ScoredCandidate } from '@stable-selector/core';
+import type { ScoredCandidate } from 'stable-selector';
 
 interface BestSelectorProps {
   candidate: ScoredCandidate;

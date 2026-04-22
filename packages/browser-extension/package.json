@@ -9,7 +9,7 @@
     "zip": "wxt zip"
   },
   "dependencies": {
-    "@stable-selector/core": "workspace:*",
+    "stable-selector": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "lucide-react": "^0.500.0"
@@ -17,6 +17,7 @@
   "devDependencies": {
     "wxt": "^0.20.0",
     "@wxt-dev/module-react": "~1.1.5",
+    "@types/chrome": "^0.0.280",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.4.0",

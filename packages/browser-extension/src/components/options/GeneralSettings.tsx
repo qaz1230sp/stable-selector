@@ -1,6 +1,6 @@
 import { Settings } from 'lucide-react';
 import type { ExtensionConfig } from '../../types';
-import type { SelectorFormat } from '@stable-selector/core';
+import type { SelectorFormat } from 'stable-selector';
 
 interface GeneralSettingsProps {
   config: ExtensionConfig;

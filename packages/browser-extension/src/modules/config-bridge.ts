@@ -1,5 +1,5 @@
-import { configure, resetConfig } from '@stable-selector/core';
-import type { BlacklistConfig } from '@stable-selector/core';
+import { configure, resetConfig } from 'stable-selector';
+import type { BlacklistConfig } from 'stable-selector';
 import { DEFAULT_EXTENSION_CONFIG, type ExtensionConfig } from '../types';
 
 /** Match a URL hostname against a domain pattern (supports leading *.) */

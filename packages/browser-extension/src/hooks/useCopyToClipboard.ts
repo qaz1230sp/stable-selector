@@ -2,10 +2,14 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 
 export function useCopyToClipboard(resetDelay = 1500) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    return () => clearTimeout(timerRef.current);
+    return () => {
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current);
+      }
+    };
   }, []);
 
   const copy = useCallback(
@@ -13,7 +17,9 @@ export function useCopyToClipboard(resetDelay = 1500) {
       try {
         await navigator.clipboard.writeText(text);
         setCopiedKey(key);
-        clearTimeout(timerRef.current);
+        if (timerRef.current !== null) {
+          clearTimeout(timerRef.current);
+        }
         timerRef.current = setTimeout(() => setCopiedKey(null), resetDelay);
       } catch {
         const textarea = document.createElement('textarea');
@@ -25,7 +31,9 @@ export function useCopyToClipboard(resetDelay = 1500) {
         document.execCommand('copy');
         textarea.remove();
         setCopiedKey(key);
-        clearTimeout(timerRef.current);
+        if (timerRef.current !== null) {
+          clearTimeout(timerRef.current);
+        }
         timerRef.current = setTimeout(() => setCopiedKey(null), resetDelay);
       }
     },

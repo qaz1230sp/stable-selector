@@ -2,11 +2,11 @@
 
 > Generate unique, stable selectors for web elements
 
-[![npm version](https://img.shields.io/npm/v/@stable-selector/core)](https://www.npmjs.com/package/@stable-selector/core)
-[![CI](https://github.com/user/stable-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/user/stable-selector/actions/workflows/ci.yml)
-[![coverage](https://img.shields.io/codecov/c/github/user/stable-selector)](https://codecov.io/gh/user/stable-selector)
-[![license](https://img.shields.io/npm/l/@stable-selector/core)](./LICENSE)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@stable-selector/core)](https://bundlephobia.com/package/@stable-selector/core)
+[![npm version](https://img.shields.io/npm/v/stable-selector)](https://www.npmjs.com/package/stable-selector)
+[![CI](https://github.com/qaz1230sp/stable-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/qaz1230sp/stable-selector/actions/workflows/ci.yml)
+[![coverage](https://img.shields.io/codecov/c/github/qaz1230sp/stable-selector)](https://codecov.io/gh/qaz1230sp/stable-selector)
+[![license](https://img.shields.io/npm/l/stable-selector)](./LICENSE)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/stable-selector)](https://bundlephobia.com/package/stable-selector)
 
 [中文文档](./README.zh-CN.md)
 
@@ -29,16 +29,28 @@ Modern front-end toolchains — CSS Modules, Styled Components, Emotion, Vue sco
 ## Quick Start
 
 ```bash
-npm install @stable-selector/core
+npm install stable-selector
 ```
 
 ```typescript
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 const result = getSelector(element);
 // => { css: 'div[data-testid="user-card"]',
 //      xpath: '//div[@data-testid="user-card"]',
 //      playwright: '[data-testid="user-card"]' }
+```
+
+## Browser Script (Single JS File)
+
+You can also load stable-selector directly in browsers without a bundler:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/stable-selector/dist/index.global.js"></script>
+<script>
+  const result = StableSelector.getSelector(document.querySelector('#target'));
+  console.log(result);
+</script>
 ```
 
 ## Output Formats
@@ -69,7 +81,7 @@ const result = getSelector(element, { formats: ['playwright'] });
 Use `configure()` to set global options:
 
 ```typescript
-import { configure } from '@stable-selector/core';
+import { configure } from 'stable-selector';
 
 configure({
   filters: {
@@ -141,6 +153,15 @@ See the full [API documentation](./docs/api-reference.md).
 ## Contributing
 
 Contributions are welcome! Please read the [Contributing Guide](./CONTRIBUTING.md) before submitting a pull request.
+
+## Release
+
+This repo includes a publish workflow at `.github/workflows/release-core.yml`.
+
+1. Add repository secret `NPM_TOKEN` (npm publish token).
+2. Bump `packages/core/package.json` version.
+3. Push a tag like `core-v0.1.1` (or run workflow manually).
+4. GitHub Actions will run typecheck/test/build and publish `stable-selector` if that version is not already on npm.
 
 ## License
 

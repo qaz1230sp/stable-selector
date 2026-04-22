@@ -1,0 +1,55 @@
+name: Release Core
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'core-v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify build quality
+        run: |
+          pnpm run typecheck
+          pnpm test
+          pnpm run build
+
+      - name: Ensure package is not already published
+        id: check
+        run: |
+          PKG_NAME=$(node -p "require('./packages/core/package.json').name")
+          PKG_VERSION=$(node -p "require('./packages/core/package.json').version")
+          if npm view "$PKG_NAME@$PKG_VERSION" version >/dev/null 2>&1; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "$PKG_NAME@$PKG_VERSION is already published."
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            echo "$PKG_NAME@$PKG_VERSION is not published yet."
+          fi
+
+      - name: Publish stable-selector
+        if: steps.check.outputs.published == 'false'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm --filter stable-selector publish --no-git-checks --provenance

@@ -1,5 +1,5 @@
 import { Filter, CircleCheck, CircleX, AlertTriangle } from 'lucide-react';
-import type { FilterDetail } from '@stable-selector/core';
+import type { FilterDetail } from 'stable-selector';
 
 interface FilterDetailsProps {
   details: FilterDetail[];

@@ -2,11 +2,11 @@
 
 > 为网页元素生成唯一、稳定的选择器
 
-[![npm version](https://img.shields.io/npm/v/@stable-selector/core)](https://www.npmjs.com/package/@stable-selector/core)
-[![CI](https://github.com/user/stable-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/user/stable-selector/actions/workflows/ci.yml)
-[![coverage](https://img.shields.io/codecov/c/github/user/stable-selector)](https://codecov.io/gh/user/stable-selector)
-[![license](https://img.shields.io/npm/l/@stable-selector/core)](./LICENSE)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@stable-selector/core)](https://bundlephobia.com/package/@stable-selector/core)
+[![npm version](https://img.shields.io/npm/v/stable-selector)](https://www.npmjs.com/package/stable-selector)
+[![CI](https://github.com/qaz1230sp/stable-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/qaz1230sp/stable-selector/actions/workflows/ci.yml)
+[![coverage](https://img.shields.io/codecov/c/github/qaz1230sp/stable-selector)](https://codecov.io/gh/qaz1230sp/stable-selector)
+[![license](https://img.shields.io/npm/l/stable-selector)](./LICENSE)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/stable-selector)](https://bundlephobia.com/package/stable-selector)
 
 [English](./README.md)
 
@@ -29,16 +29,28 @@
 ## 快速开始
 
 ```bash
-npm install @stable-selector/core
+npm install stable-selector
 ```
 
 ```typescript
-import { getSelector } from '@stable-selector/core';
+import { getSelector } from 'stable-selector';
 
 const result = getSelector(element);
 // => { css: 'div[data-testid="user-card"]',
 //      xpath: '//div[@data-testid="user-card"]',
 //      playwright: '[data-testid="user-card"]' }
+```
+
+## 浏览器脚本（单独 JS 文件）
+
+也可以不使用打包工具，直接在浏览器中通过单文件引入：
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/stable-selector/dist/index.global.js"></script>
+<script>
+  const result = StableSelector.getSelector(document.querySelector('#target'));
+  console.log(result);
+</script>
 ```
 
 ## 输出格式
@@ -69,7 +81,7 @@ const result = getSelector(element, { formats: ['playwright'] });
 使用 `configure()` 设置全局选项：
 
 ```typescript
-import { configure } from '@stable-selector/core';
+import { configure } from 'stable-selector';
 
 configure({
   filters: {
@@ -140,6 +152,15 @@ stable-selector 使用四阶段管道架构：
 ## 贡献
 
 欢迎贡献！请在提交 Pull Request 前阅读[贡献指南](./CONTRIBUTING.md)。
+
+## 发布
+
+仓库已提供发布工作流：`.github/workflows/release-core.yml`。
+
+1. 在仓库 Secrets 中添加 `NPM_TOKEN`（npm 发布令牌）。
+2. 更新 `packages/core/package.json` 的版本号。
+3. 推送类似 `core-v0.1.1` 的 tag（或手动触发 workflow）。
+4. GitHub Actions 会先跑 typecheck/test/build，若该版本未发布到 npm 则自动发布 `stable-selector`。
 
 ## 许可证
 

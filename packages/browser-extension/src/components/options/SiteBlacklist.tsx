@@ -1,6 +1,6 @@
 import { Trash2 } from 'lucide-react';
 import { BlacklistRuleInput } from './BlacklistRuleInput';
-import type { BlacklistConfig } from '@stable-selector/core';
+import type { BlacklistConfig } from 'stable-selector';
 
 interface SiteBlacklistProps {
   domain: string;

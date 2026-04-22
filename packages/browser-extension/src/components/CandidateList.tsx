@@ -1,6 +1,6 @@
 import { BarChart3 } from 'lucide-react';
 import { CandidateRow } from './CandidateRow';
-import type { ScoredCandidate } from '@stable-selector/core';
+import type { ScoredCandidate } from 'stable-selector';
 
 interface CandidateListProps {
   candidates: ScoredCandidate[];

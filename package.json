@@ -7,7 +7,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint packages/*/src/**/*.{ts,tsx}",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "pnpm exec tsc --noEmit -p packages/core/tsconfig.json && pnpm exec tsc --noEmit -p packages/browser-extension/tsconfig.json"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

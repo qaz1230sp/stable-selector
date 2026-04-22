@@ -4,7 +4,10 @@
     "jsx": "react-jsx",
     "outDir": "dist",
     "rootDir": "src",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"]
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["chrome"],
+    "declaration": false,
+    "declarationMap": false
   },
   "include": ["src/**/*"],
   "exclude": ["dist"]

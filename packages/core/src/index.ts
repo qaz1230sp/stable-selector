@@ -1,5 +1,5 @@
 /**
- * @stable-selector/core
+ * stable-selector
  *
  * Generate unique, stable selectors for web elements
  * with smart dynamic attribute filtering.

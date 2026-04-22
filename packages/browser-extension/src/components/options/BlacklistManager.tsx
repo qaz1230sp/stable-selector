@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BlacklistRuleInput } from './BlacklistRuleInput';
 import { SiteBlacklist } from './SiteBlacklist';
 import type { ExtensionConfig } from '../../types';
-import type { BlacklistConfig } from '@stable-selector/core';
+import type { BlacklistConfig } from 'stable-selector';
 
 interface BlacklistManagerProps {
   config: ExtensionConfig;
