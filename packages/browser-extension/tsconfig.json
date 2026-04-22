@@ -3,9 +3,9 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "outDir": "dist",
+    "rootDir": "..",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "types": ["chrome"],
-    "baseUrl": ".",
     "paths": {
       "stable-selector": ["../core/src/index.ts"]
     },

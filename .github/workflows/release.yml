@@ -1,5 +1,8 @@
 name: Release
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   workflow_dispatch:
   push:
@@ -12,7 +15,12 @@ permissions:
 
 jobs:
   publish-core:
+    name: Publish stable-selector to npm
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: npm-release
+      url: https://www.npmjs.com/package/stable-selector
     steps:
       - uses: actions/checkout@v4
 
@@ -55,7 +63,9 @@ jobs:
         run: pnpm --filter stable-selector publish --no-git-checks --provenance
 
   package-extension:
+    name: Package browser extension and upload to release
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: publish-core
     permissions:
       contents: write
