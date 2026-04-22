@@ -119,14 +119,17 @@ const result = getSelector(element, {
 
 stable-selector uses a four-stage pipeline:
 
-```
-Element → Filter Engine → Strategy Pipeline → Scorer Engine → Formatter
-              ↓                   ↓                  ↓             ↓
-      Remove dynamic        Generate candidates   Score by      Output as
-      attributes            via multiple           uniqueness,   CSS/XPath/
-                            strategies             stability,    Playwright
-                                                   brevity,
-                                                   readability
+```mermaid
+flowchart LR
+    A[Element] --> B[Filter Engine]
+    B --> C[Strategy Pipeline]
+    C --> D[Scorer Engine]
+    D --> E[Formatter]
+
+    B -.-> B1[Remove dynamic attributes]
+    C -.-> C1[Generate candidates<br/>via multiple strategies]
+    D -.-> D1[Score by uniqueness,<br/>stability, brevity, readability]
+    E -.-> E1[Output as<br/>CSS / XPath / Playwright]
 ```
 
 1. **Filter Engine** removes unstable attributes using built-in patterns, entropy-based heuristic detection, and user-defined rules
@@ -134,17 +137,14 @@ Element → Filter Engine → Strategy Pipeline → Scorer Engine → Formatter
 3. **Scorer Engine** ranks candidates on 4 weighted dimensions: uniqueness (0.4), stability (0.35), brevity (0.15), readability (0.1)
 4. **Formatter** converts the best candidate into the requested output format(s)
 
-## Comparison
+## Highlights
 
-| Feature | stable-selector | finder | css-selector-generator | optimal-select |
-|---|---|---|---|---|
-| Dynamic attribute filtering | ✅ 3-layer | ❌ | ❌ | ❌ |
-| Heuristic detection | ✅ Entropy | ❌ | ❌ | ❌ |
-| Multi-format output | ✅ CSS+XPath+PW | CSS only | CSS only | CSS only |
-| Scored ranking | ✅ 4-dimension | ❌ | Partial | ❌ |
-| Extensible strategies | ✅ Plugin-based | ❌ | Partial | ❌ |
-| TypeScript | ✅ Native | ❌ | ✅ | ❌ |
-| Browser + Node | ✅ | ✅ | ✅ | ✅ |
+- **Dynamic attribute filtering** — 3-layer pipeline (built-in patterns, entropy-based heuristics, user-defined rules) keeps selectors stable across CSS Modules, Styled Components, Emotion, Vue scoped styles, Webpack hashes, Tailwind JIT, and more.
+- **Multi-format output** — Generate CSS Selector, XPath, and Playwright Locator from a single call.
+- **Scored ranking** — Each candidate is ranked on 4 weighted dimensions: uniqueness, stability, brevity, readability.
+- **Extensible strategies** — Plug in or reorder ID / Attribute / Structural / Text / Role strategies via configuration.
+- **TypeScript-first** — Fully typed public API, ESM + CJS + browser IIFE bundle out of the box.
+- **Runs anywhere** — Works in modern browsers and Node-based test runners with zero runtime dependencies.
 
 ## API Reference
 
