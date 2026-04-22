@@ -1,0 +1,26 @@
+{
+  "name": "stable-selector",
+  "private": true,
+  "description": "Generate unique, stable selectors for web elements with smart dynamic attribute filtering",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint packages/*/src/**/*.{ts,tsx}",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^3.1.0",
+    "happy-dom": "^17.4.0",
+    "tsup": "^8.4.0",
+    "eslint": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

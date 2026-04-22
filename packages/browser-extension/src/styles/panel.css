@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-panel-bg: #1e1e2e;
+  --color-panel-surface: #282842;
+  --color-panel-border: #454560;
+  --color-panel-text: #f0f0f5;
+  --color-panel-muted: #a0a0c0;
+  --color-panel-accent: #5A9FE6;
+  --color-panel-success: #8CC84B;
+  --color-panel-warning: #F5A623;
+  --color-panel-danger: #E74C3C;
+  --font-size-xxs: 0.65rem;
+}
