@@ -154,15 +154,6 @@ flowchart LR
 
 欢迎贡献！请在提交 Pull Request 前阅读[贡献指南](./CONTRIBUTING.md)。
 
-## 发布
-
-仓库已提供统一发布工作流：`.github/workflows/release.yml`。
-
-1. 在 npm 中为该 GitHub 仓库与包配置 Trusted Publishing（无需 `NPM_TOKEN`）。
-2. 更新 `packages/core/package.json` 的版本号。
-3. 推送类似 `release-v0.1.1` 的 tag（或手动触发 workflow）。
-4. GitHub Actions 会先跑 typecheck/test/build；若该版本未发布到 npm，则通过 OIDC provenance 自动发布 `stable-selector`，并打包浏览器插件 zip 作为 GitHub Release 附件上传。
-
 ## 许可证
 
 [MIT](./LICENSE)

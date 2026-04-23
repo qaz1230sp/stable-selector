@@ -154,15 +154,6 @@ See the full [API documentation](./docs/api-reference.md).
 
 Contributions are welcome! Please read the [Contributing Guide](./CONTRIBUTING.md) before submitting a pull request.
 
-## Release
-
-This repo includes a unified release workflow at `.github/workflows/release.yml`.
-
-1. Configure npm Trusted Publishing for this GitHub repository/package pair (no `NPM_TOKEN` needed).
-2. Bump `packages/core/package.json` version.
-3. Push a tag like `release-v0.1.1` (or run workflow manually).
-4. GitHub Actions will run typecheck/test/build, publish `stable-selector` with OIDC provenance (if not already published), package the browser extension zip, and attach it to the GitHub Release.
-
 ## License
 
 [MIT](./LICENSE)
